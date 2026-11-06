@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RelxGamble | Casino RelxMC</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"><style>
+:root{color-scheme:light;--bg:#f0fdf4;--panel:#fff;--ink:#0f2e1a;--mut:#4d7a5c;--line:#d1ecd9;--blue:#16a34a;--blue2:#4ade80;--green:#16a34a;--red:#ef4444;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;display:flex;min-height:100vh}
+.logo{font-weight:900;font-size:24px;letter-spacing:-.5px}.logo b{color:#fff;text-shadow:0 0 0 #000;-webkit-text-stroke:0}.logo i{font-style:normal;color:#4ade80}
+.brand{background:#14532d;padding:8px 14px;border-radius:12px;display:inline-block;box-shadow:0 6px 18px #16a34a44}
+aside{width:290px;background:var(--panel);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:16px;position:sticky;top:0;height:100vh}
+.rain{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#dcfce7,#f0fdf4);border:1px solid var(--line);border-radius:14px;padding:10px}
+.rain .ic{font-size:26px}.rain b{font-size:17px}.rain small{color:var(--mut);display:block}
+.btn{border:0;cursor:pointer;font-weight:700;border-radius:10px;padding:10px 18px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 4px 12px #16a34a40;font-size:14px}
+.btn.g{background:linear-gradient(135deg,#0d9488,#2dd4bf);box-shadow:0 4px 12px #16c26440}.btn.s{padding:6px 12px;font-size:12px}
+.btn:active{transform:translateY(1px)}
+.chat{flex:1;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.chat h4{margin:0;padding:12px;border-bottom:1px solid var(--line);font-size:14px}
+.msgs{flex:1;padding:10px;overflow:auto;font-size:13px;display:flex;flex-direction:column;gap:6px}
+.msgs span b{color:var(--blue)}.lock{text-align:center;padding:14px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+main{flex:1;min-width:0}
+header{display:flex;align-items:center;gap:8px;padding:14px 28px;background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav{display:flex;gap:6px;flex:1;overflow-x:auto}nav a{padding:9px 14px;border-radius:10px;color:var(--mut);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}nav a.on,nav a:hover{background:var(--bg);color:var(--blue)}
+.wal{display:none;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px 4px 4px 12px;font-weight:800;white-space:nowrap}.mg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.mg button{aspect-ratio:1;border:0;border-radius:10px;background:var(--bg);color:var(--ink);font-size:20px;cursor:pointer;font-weight:800}.mg .ok{background:#16c26455}.mg .bad{background:#ef444455}.mg .pk{background:#16a34a;color:#fff}.box{max-height:92vh;overflow:auto}.box label,.box p{font-size:14px;color:var(--mut)}.box code{background:var(--bg);padding:3px 6px;border-radius:6px;word-break:break-all}.box .btn:disabled{opacity:.5}
+.wrap{padding:28px;max-width:1180px;margin:auto}
+.hero{border-radius:24px;padding:38px;background:radial-gradient(circle at 85% 20%,#bbf7d0 0,transparent 45%),linear-gradient(135deg,#166534,#22c55e);color:#fff;position:relative;overflow:hidden;box-shadow:0 18px 40px #16a34a33}
+.hero h1{font-size:40px;line-height:1.1;margin:0 0 10px;max-width:560px}.hero h1 em{font-style:normal;color:#b9ffd7}
+.hero p{margin:0 0 14px;opacity:.95}.hero li{list-style:none;margin:5px 0;font-weight:600}.hero li:before{content:"✓ ";color:#b9ffd7}
+.hero .row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.hero .btn.w{background:#fff;color:var(--blue);box-shadow:none}
+.hero .deco{position:absolute;right:30px;bottom:-10px;font-size:130px;opacity:.9;transform:rotate(12deg)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.st small{color:var(--mut);font-weight:600}.st b{display:block;font-size:22px;margin-top:4px}
+h2{margin:28px 0 14px;font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.card{cursor:pointer;text-align:center}.card .art{height:190px;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:900;font-size:20px;letter-spacing:.5px;box-shadow:0 8px 20px #0f244722;transition:.2s;position:relative;overflow:hidden}
+.card .art span{font-size:64px;filter:drop-shadow(0 6px 6px #0003)}.card:hover .art{transform:translateY(-6px) scale(1.02)}
+.card .art:after{content:"RELX ORIGINALS";position:absolute;bottom:10px;font-size:8px;opacity:.7;letter-spacing:1.5px}
+.card small{display:block;margin-top:8px;color:var(--mut);font-weight:700;font-size:13px}.card small:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:6px}
+.tabs{display:flex;gap:6px;background:var(--panel);padding:6px;border:1px solid var(--line);border-radius:12px;width:max-content;max-width:100%;overflow:auto}
+.tabs button{border:0;background:none;color:var(--mut);font-weight:700;padding:9px 14px;border-radius:9px;cursor:pointer}.tabs button.on{background:var(--bg);color:var(--blue)}
+.tbl{margin-top:12px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:560px}th{color:var(--mut);text-align:left;font-size:13px;padding:14px 16px;background:var(--bg)}td{padding:13px 16px;border-top:1px solid var(--line);font-size:14px;font-weight:600}
+.w{color:var(--green)}.l{color:var(--red)}.mult{padding:3px 8px;border-radius:6px;background:var(--bg)}.mult.w{background:#16c26422}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.f{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}.f span{font-size:30px}.f b{display:block;margin:8px 0 4px}.f p{margin:0;color:var(--mut);font-size:14px}
+.modal.full{background:var(--bg);align-items:flex-start;padding:0;overflow:auto;z-index:30}.modal.full .box{max-width:560px;margin:0 auto;background:none;border-radius:0;max-height:none;overflow:visible;padding:16px}.bar{display:flex;align-items:center;gap:10px;margin-bottom:14px}.bar h3{flex:1;text-align:left;margin:0}.bar span{font-weight:800;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px}.xb{border:1px solid var(--line);background:var(--panel);color:var(--ink);width:42px;height:42px;border-radius:12px;font-size:18px;cursor:pointer}.pn{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}.rq{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0;text-align:left;font-size:14px}.rq .row2{margin-top:8px}.sc svg{width:84px;height:84px}.sc{margin-bottom:8px}.card .art span svg{width:100px;height:100px}.mg button svg{width:70%;height:70%}.sky{height:210px;border-radius:16px;background:linear-gradient(#e0f2fe,#bbf7d0);position:relative;overflow:hidden;margin-bottom:12px}#rk{position:absolute;left:6%;bottom:6px;width:64px;transition:transform .1s linear}#rk svg{width:64px;height:64px}.coin{width:96px;margin:6px auto;perspective:400px}.coin svg{width:96px;height:96px}.coin.spin{animation:cs .8s}@keyframes cs{from{transform:rotateY(0)}to{transform:rotateY(1440deg)}}.pc{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:46px;height:64px;background:#fff;border-radius:8px;font-weight:900;font-size:18px;margin:3px;box-shadow:0 2px 6px #0003;color:#111}.pc.rd{color:#dc2626}.pc.bk{background:repeating-linear-gradient(45deg,#16a34a,#16a34a 6px,#15803d 6px,#15803d 12px);color:#fff}.felt{background:radial-gradient(#22c55e,#15803d);border-radius:16px;padding:14px;margin:12px 0;color:#fff;min-height:150px;text-align:left}.felt small{font-weight:800}.chest svg{width:130px;height:130px}.shake{animation:sh .25s infinite}@keyframes sh{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}.road{font-size:26px;letter-spacing:2px}#sv svg{width:90px;height:110px}body{font-family:'Plus Jakarta Sans',Inter,system-ui,Segoe UI,Arial,sans-serif;background:radial-gradient(900px 400px at 85% -5%,#bbf7d066,transparent),radial-gradient(700px 400px at -10% 30%,#86efac40,transparent),var(--bg)}
+header{backdrop-filter:blur(12px);background:#ffffffd9}aside{background:linear-gradient(#fff,#f0fdf4)}nav a.on{background:#dcfce7}
+.hero{padding:50px;border-radius:28px}.hero h1{font-size:46px;letter-spacing:-1px}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 120%,#ffffff33,transparent 50%),repeating-linear-gradient(135deg,#ffffff0f 0 2px,transparent 2px 16px)}.hero>:not(.deco){position:relative}
+.hero .deco{right:40px;top:24px;bottom:auto;width:280px;height:250px;transform:none;font-size:0;opacity:1}.deco i{position:absolute;width:104px;height:104px;animation:fl 4s ease-in-out infinite;animation-delay:calc(var(--i)*-1s);filter:drop-shadow(0 10px 12px #0004)}.deco i:nth-child(1){left:10px;top:60px}.deco i:nth-child(2){left:110px;top:0}.deco i:nth-child(3){left:170px;top:120px}.deco i:nth-child(4){left:40px;top:140px}@keyframes fl{50%{transform:translateY(-14px) rotate(6deg)}}
+.st{transition:.2s}.st:hover{transform:translateY(-3px);box-shadow:0 10px 24px #16a34a22}.note{font-size:12px;color:var(--mut);margin:-6px 0 0}
+h2{display:flex;align-items:center;gap:10px}h2:before{content:"";width:6px;height:24px;border-radius:4px;background:linear-gradient(#16a34a,#4ade80)}
+.chips{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:700;color:var(--mut);cursor:pointer;font-family:inherit}.chips button.on{background:#16a34a;color:#fff;border-color:#16a34a}
+.card .art{box-shadow:0 10px 24px #16a34a26;border:1px solid #ffffff66}.card:hover .art{box-shadow:0 18px 36px #16a34a4d}.card .art:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-120%);transition:.6s}.card:hover .art:before{transform:translateX(120%)}
+.btn{transition:.15s;font-family:inherit}.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}tbody tr:hover{background:var(--bg)}
+.f{transition:.2s}.f:hover{transform:translateY(-4px);border-color:#4ade80;box-shadow:0 12px 26px #16a34a1f}.f span{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#dcfce7,#bbf7d0);font-size:26px}
+@media(max-width:860px){.hero .deco{display:none}.hero{padding:26px}.hero h1{font-size:30px}}
+footer{padding:30px 28px;color:var(--mut);font-size:12px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+.modal{position:fixed;inset:0;background:#0a1a3acc;display:none;align-items:center;justify-content:center;z-index:20;padding:16px}.modal.on{display:flex}
+.box{background:var(--panel);border-radius:22px;padding:24px;width:100%;max-width:400px;text-align:center}
+.box h3{margin:0 0 4px;font-size:22px}.box input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:16px;margin:8px 0;font-weight:700}
+.res{font-size:46px;font-weight:900;margin:12px 0;min-height:56px}.row2{display:flex;gap:8px;margin-top:8px}.row2 .btn{flex:1}.x{float:right;cursor:pointer;color:var(--mut);font-size:20px}
+@media(max-width:860px){aside{display:none}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:24px}.hero h1{font-size:28px}.hero .deco{font-size:80px}header,.wrap{padding-left:14px;padding-right:14px}}
+</style></head><body>
+<aside>
+<div class="brand"><span class="logo"><b>Relx</b><i>Gamble</i></span></div>
+<div class="rain"><span class="ic">🌧️</span><div><b id="pool">31.48m</b><small>Rain pool · <span id="rt">2:49</span></small></div><button class="btn s g" style="margin-left:auto" onclick="rain()">Join</button></div>
+
+</aside>
+<main>
+<header><nav><a class="on" href="#home">🏠 Home</a><a href="#games">🎮 Games</a><a href="#race">🏆 Race</a><a href="#ref">👥 Referrals</a><a href="#bets">📊 Live Bets</a></nav><div class="wal" id="wal"><span id="bal">🪙 0</span><button class="btn s g" onclick="dep()">Deposit</button><button class="btn s" onclick="wd()">Withdraw</button></div><button class="btn" id="lb" onclick="openLogin()">Masuk</button><button class="btn s" style="background:#334155" onclick="admin()">🛡️ Admin</button></header>
+<div class="wrap" id="home">
+<div class="hero"><h1>RelxGamble: casino <em>RelxMC</em> yang fair &amp; seru</h1><p>Masuk dengan username Minecraft kamu. Cuma butuh semenit.</p>
+<ul><li>Deposit &amp; withdraw langsung di server RelxMC</li><li>Peluang transparan, house edge sekitar 3%</li><li>Free case setiap hari</li></ul>
+<div class="row"><button class="btn w" onclick="openLogin()">Masuk</button></div>
+<div class="deco" id="deco"></div></div>
+<div class="stats"><div class="st"><small>Pemain online</small><b id="s1">128</b></div><div class="st"><small>Total taruhan hari ini</small><b>2.4B</b></div><div class="st"><small>Payout terbesar</small><b class="w">+310m</b></div><div class="st"><small>Game tersedia</small><b>14</b></div></div>
+<p class="note">Angka statistik, jumlah pemain, dan taruhan live di halaman ini masih contoh simulasi untuk tampilan. Setelah backend dipasang, semuanya memakai data asli.</p><h2 id="games">🎮 Games</h2><div class="chips" id="chips"><button class="on" data-c="all">Semua</button><button data-c="ins">⚡ Instan</button><button data-c="co">🚀 Cash-out</button><button data-c="tb">🃏 Meja</button></div><div class="grid" id="grid"></div>
+<h2 id="bets">📊 Taruhan Live <small style="font-size:12px;color:var(--mut);font-weight:600">(simulasi demo)</small></h2>
+<div class="tabs" id="tabs"><button data-t="all" class="on">All Bets</button><button data-t="high">High Rollers</button><button data-t="lucky">Lucky Winners</button></div>
+<div class="tbl"><table><thead><tr><th>Game</th><th>Pemain</th><th>Taruhan</th><th>Multiplier</th><th style="text-align:right">Payout</th></tr></thead><tbody id="tb"></tbody></table></div>
+<h2 id="race">✨ Fitur Unggulan</h2>
+<div class="feat"><div class="f"><span>🏆</span><b>Weekly Race</b><p>Adu taruhan terbanyak, top player dapat hadiah besar.</p></div><div class="f"><span>🎁</span><b>Free Case Harian</b><p>Buka satu case gratis tiap hari.</p></div><div class="f" id="ref"><span>👥</span><b>Referral</b><p>Ajak teman dan dapat bonus dari tiap taruhan mereka.</p></div><div class="f"><span>🌧️</span><b>Rain</b><p>Hujan koin acak untuk member yang aktif di chat.</p></div><div class="f"><span>🔍</span><b>Peluang Transparan</b><p>House edge sekitar 3% di semua game, sama untuk semua bet.</p></div><div class="f"><span>⚡</span><b>Deposit Instan</b><p>Transfer koin in-game langsung masuk saldo.</p></div></div>
+</div>
+<footer>RelxGamble menggunakan uang virtual server Minecraft RelxMC, bukan uang asli. Bermainlah dengan bijak. Khusus 18+.</footer>
+</main>
+<div class="modal" id="m"><div class="box" id="mb"></div></div>
+<div class="modal" id="tm" style="z-index:40;background:none;pointer-events:none;align-items:flex-end"><div class="box" id="tt" style="max-width:320px;padding:12px;background:var(--ink);color:var(--bg)"></div></div>
+<script>
+const $=id=>document.getElementById(id);let bal=0,user=null;
+const G=[["Mines","💎","#059669,#6ee7b7",18],["Crash","🚀","#38bdf8,#86efac",10],["Cases","📦","#d97706,#fde68a",9],["Plinko","🔵","#0d9488,#5eead4",16],["Dice","🎲","#16a34a,#86efac",14],["Blackjack","🃏","#15803d,#4ade80",12],["Keno","🔢","#65a30d,#bef264",8],["Limbo","🎯","#0f766e,#5eead4",7],["Flip","🪙","#ca8a04,#fde047",11],["Roulette","🎡","#166534,#4ade80",6],["Chicken","🐔","#84cc16,#d9f99d",13],["Wheel","🛞","#22c55e,#facc15",5],["Pump","🎈","#10b981,#a7f3d0",9],["Coinflip","💰","#15803d,#fcd34d",15]];
+const BN=new Set(['Mines','Dice','Keno','Limbo','Chicken']);let CUR='',rd=0,wdeg=0;
+const WS=[0,1.5,0,2,0,1.5,0,2,0,1.5,0,3];
+const V=b=>`<svg viewBox="0 0 100 100">${b}</svg>`;
+const GEM=V('<polygon points="50,10 82,38 50,90 18,38" fill="#10b981"/><polygon points="50,10 66,38 50,90 34,38" fill="#6ee7b7"/><polygon points="18,38 82,38 50,10" fill="#a7f3d0"/>'),
+BOMB=V('<circle cx="50" cy="60" r="28" fill="#1f2937"/><rect x="43" y="24" width="14" height="12" fill="#6b7280"/><path d="M57 26q12-12 22-4" stroke="#f59e0b" stroke-width="4" fill="none"/><circle cx="40" cy="52" r="6" fill="#fff" opacity=".35"/>');
+const COIN=l=>V(`<circle cx="50" cy="50" r="46" fill="#f59e0b"/><circle cx="50" cy="50" r="37" fill="#fcd34d" stroke="#d97706" stroke-width="3"/><text x="50" y="64" font-size="40" font-weight="900" text-anchor="middle" fill="#b45309">${l}</text>`);
+const pip=(x,y)=>`<circle cx="${x}" cy="${y}" r="4" fill="#111"/>`;
+const WHEEL=()=>{let p='';WS.forEach((v,i)=>{const a=i*30*Math.PI/180,b=(i+1)*30*Math.PI/180,P=(r,t)=>(50+r*Math.sin(t)).toFixed(1)+' '+(50-r*Math.cos(t)).toFixed(1);p+=`<path d="M50 50L${P(48,a)}A48 48 0 0 1 ${P(48,b)}Z" fill="${v==0?'#d1d5db':v<2?'#86efac':v<3?'#22c55e':'#facc15'}" stroke="#fff" stroke-width=".8"/><text transform="rotate(${i*30+15} 50 50)" x="50" y="17" font-size="7" font-weight="800" text-anchor="middle" fill="#14532d">${v}×</text>`});return `<svg viewBox="0 0 100 100" width="240">${p}<circle cx="50" cy="50" r="6" fill="#14532d"/></svg>`};
+const IMG={Mines:GEM,
+Crash:V('<g transform="rotate(45 50 50)"><path d="M50 8c12 14 14 36 8 56H42c-6-20-4-42 8-56z" fill="#fff" stroke="#cbd5e1"/><circle cx="50" cy="34" r="7" fill="#38bdf8"/><path d="M42 62l-13 16 13-4zM58 62l13 16-13-4z" fill="#ef4444"/><path d="M44 66h12l-6 26z" fill="#f59e0b"/></g>'),
+Cases:V('<rect x="14" y="42" width="72" height="42" rx="6" fill="#b45309"/><path d="M14 46a36 28 0 0 1 72 0z" fill="#d97706"/><rect x="44" y="48" width="12" height="16" rx="3" fill="#fde047"/>'),
+Plinko:V('<g fill="#fff">'+[[30,25],[50,25],[70,25],[40,45],[60,45],[30,65],[50,65],[70,65]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="4"/>`).join('')+'</g><circle cx="50" cy="86" r="8" fill="#facc15"/>'),
+Dice:V('<rect x="8" y="30" width="46" height="46" rx="9" fill="#fff"/>'+pip(21,43)+pip(41,63)+pip(31,53)+'<rect x="48" y="12" width="42" height="42" rx="9" fill="#fff" transform="rotate(12 69 33)"/>'+pip(62,26)+pip(78,26)+pip(62,42)+pip(78,42)),
+Blackjack:V('<rect x="12" y="20" width="44" height="62" rx="6" fill="#fff" transform="rotate(-10 34 51)"/><text x="22" y="46" font-size="20" font-weight="900" fill="#111" transform="rotate(-10 34 51)">A♠</text><rect x="44" y="18" width="44" height="62" rx="6" fill="#fff" transform="rotate(10 66 49)"/><text x="52" y="44" font-size="20" font-weight="900" fill="#dc2626" transform="rotate(10 66 49)">K♥</text>'),
+Keno:V('<g font-size="16" font-weight="900" text-anchor="middle" fill="#fff">'+[[28,36,'7',1],[62,32,'28',0],[30,72,'14',0],[68,68,'40',1]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="16" fill="${p[3]?'#facc15':'#34d399'}"/><text x="${p[0]}" y="${p[1]+6}" ${p[3]?'fill="#78350f"':''}>${p[2]}</text>`).join('')+'</g>'),
+Limbo:V('<circle cx="50" cy="50" r="42" fill="#fff"/><circle cx="50" cy="50" r="30" fill="#ef4444"/><circle cx="50" cy="50" r="18" fill="#fff"/><circle cx="50" cy="50" r="8" fill="#ef4444"/>'),
+Flip:COIN('H'),
+Roulette:V('<circle cx="50" cy="50" r="44" fill="#111827"/><circle cx="50" cy="50" r="31" fill="none" stroke="#dc2626" stroke-width="20" stroke-dasharray="7.85 7.85"/><circle cx="50" cy="50" r="13" fill="#fde047"/><circle cx="50" cy="14" r="4" fill="#fff"/>'),
+Chicken:V('<text x="50" y="74" font-size="68" text-anchor="middle">🐔</text>'),
+Wheel:WHEEL(),
+Pump:V('<ellipse cx="50" cy="42" rx="28" ry="34" fill="#ef4444"/><ellipse cx="40" cy="30" rx="6" ry="10" fill="#fff" opacity=".35"/><path d="M46 76h8l-4 8z" fill="#b91c1c"/><path d="M50 84q-8 8 0 14" stroke="#6b7280" fill="none" stroke-width="2"/>'),
+Coinflip:COIN('$')};
+function coinA(h){const c=$('coin');if(!c)return;c.classList.remove('spin');void c.offsetWidth;c.classList.add('spin');c.innerHTML=COIN(h?'H':'T')}
+$('grid').innerHTML=G.map((g,i)=>`<div class="card" data-n="${g[0]}" onclick="game(${i})"><div class="art" style="background:linear-gradient(160deg,${g[2]})"><span>${IMG[g[0]]}</span>${g[0].toUpperCase()}</div><small>${g[3]} playing now</small></div>`).join('');
+const CAT={ins:['Dice','Limbo','Flip','Wheel','Cases','Roulette','Plinko'],co:['Mines','Crash','Chicken','Pump','Coinflip'],tb:['Blackjack','Keno']};
+$('deco').innerHTML=['Dice','Blackjack','Flip','Crash'].map((n,i)=>`<i style="--i:${i}">${IMG[n]}</i>`).join('');
+$('chips').onclick=e=>{const c=e.target.dataset.c;if(!c)return;[...$('chips').children].forEach(b=>b.classList.toggle('on',b==e.target));document.querySelectorAll('#grid .card').forEach(d=>d.style.display=c=='all'||CAT[c].includes(d.dataset.n)?'':'none')};
+const f=n=>n>=1e9?(n/1e9).toFixed(2)+'b':n>=1e6?(n/1e6).toFixed(n>=1e8?0:1)+'m':n>=1e3?(n/1e3).toFixed(0)+'k':n;
+function toast(t){$('tt').textContent=t;$('tm').classList.add('on');setTimeout(()=>$('tm').classList.remove('on'),1800)}
+function openLogin(){if(user)return;show('Masuk',`<p>Masukkan username Minecraft RelxMC kamu.</p><input id="u" placeholder="Username Minecraft" maxlength="16"><button class="btn g" style="width:100%" onclick="login()">Masuk</button>`,0)}
+function login(){const v=$('u').value.trim().replace(/\W/g,'');if(!v)return;user=v;bal=ld('b_'+v,0);upd();closeM();$('lb').textContent=user;toast('Selamat datang, '+user+'!')}
+function ld(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let T=[],busy=0,S=null,SC=null,rj=0;
+function upd(){if(!user)return;$('wal').style.display='flex';$('bal').textContent='🪙 '+nf(bal);const e=$('bl');if(e)e.textContent='🪙 '+nf(bal);sv('b_'+user,bal)}
+function closeM(){if(busy&&!S){toast('Tunggu hasil ronde dulu');return}
+if(S){if(S.x&&busy)cx();else if(S.bm&&S.s)mc();else if(S.p)bh('s');else if(S.g==1&&S.n)cc();else if(S.g==2&&S.n)so();else if(S.b){bal+=S.b;upd()}}
+T.forEach(clearInterval);T=[];busy=0;S=null;$('m').className='modal'}
+function show(t,b,bet=1){S=null;busy=0;$('mb').innerHTML=`<div class="bar"><h3>${t}</h3><span id="bl"></span><button class="xb" onclick="closeM()">✕</button></div><div class="pn">${bet&&BN.has(CUR)?'<div class="sc">'+IMG[CUR]+'</div>':''}${bet?'<label>Taruhan</label><input id="bt" type="number" value="100000" min="1">':''}<div id="gm">${b}</div><div class="res" id="rs"></div></div>`;$('bl').textContent=user?'🪙 '+nf(bal):'';$('m').className='modal on full';$('m').scrollTop=0}
+function take(){const b=Math.floor(+$('bt').value);if(!(b>0)){toast('Isi taruhan');return 0}if(b>bal){toast('Saldo tidak cukup');return 0}bal-=b;upd();$('bt').disabled=true;$('rs').textContent='';return b}
+function end(b,m,g,msg){bal=Math.floor(bal+b*m);upd();$('bt').disabled=false;const e=$('mn');if(e)e.disabled=false;busy=0;S=null;const r=$('rs');r.className='res '+(m>=1?'w':'l');r.innerHTML=msg||(m.toFixed(2)+'×');feed({g:g,p:user[0]+'***',b:b,m:m})}
+const bb='<button class="btn g" style="width:100%;margin-top:10px"',ob='<button class="btn" style="width:100%;margin-top:8px;background:#f59e0b"';
+/* Dice */
+function dice(){show('🎲 Dice',`<label>Chance <b id="cv">50</b>% · Bayar <b id="pm">1.98×</b></label><input id="ch" type="range" min="2" max="95" value="50" oninput="$('cv').textContent=this.value;$('pm').textContent=(99/this.value).toFixed(2)+'×'"><div class="row2"><button class="btn" onclick="dr(1)">Roll Over</button><button class="btn g" onclick="dr(0)">Roll Under</button></div>`)}
+function dr(o){const b=take();if(!b)return;const c=+$('ch').value,n=Math.floor(Math.random()*10000)/100,w=o?n>100-c:n<c;end(b,w?99/c:0,'Dice','🎲 '+n.toFixed(2)+' · '+(w?'Menang':'Kalah'))}
+/* Flip */
+function flip(){show('🪙 Flip',`<div class="coin" id="coin">${COIN('H')}</div><div class="row2"><button class="btn" onclick="fl(1)">Heads</button><button class="btn g" onclick="fl(0)">Tails</button></div>`)}
+function fl(c){const b=take();if(!b)return;const h=Math.random()<.5;coinA(h);end(b,(c==1)==h?1.96:0,'Flip',h?'🪙 Heads':'🪙 Tails')}
+/* Coinflip streak */
+function cflip(){show('💰 Coinflip Streak',`<div class="coin" id="coin">${COIN('$')}</div><p>Tebak terus, tiap benar ×1.96. Cash out kapan saja.</p><div class="row2"><button class="btn" onclick="cp(1)">Heads</button><button class="btn g" onclick="cp(0)">Tails</button></div>${ob} onclick="cc()">Cash out</button>`)}
+function cp(c){if(!S){const b=take();if(!b)return;S={b,n:0,g:1}}const h=Math.random()<.5;coinA(h);if((c==1)!=h)return end(S.b,0,'Coinflip','💥 '+(h?'Heads':'Tails')+' · Kalah');S.n++;const r=$('rs');r.className='res w';r.textContent='Streak '+S.n+' · '+(1.96**S.n).toFixed(2)+'×'}
+function cc(){if(!S||!S.n)return toast('Tebak dulu');const m=1.96**S.n;end(S.b,m,'Coinflip','Cash out '+m.toFixed(2)+'×')}
+/* Limbo */
+function limbo(){show('🎯 Limbo',`<label>Target multiplier</label><input id="tg" type="number" value="2" min="1.01" step="0.01">${bb} onclick="lm()">Play</button>`)}
+function lm(){const t=+$('tg').value;if(!(t>=1.01))return toast('Target minimal 1.01');const b=take();if(!b)return;const r=Math.min(1000,Math.floor(Math.max(1,.97/(1-Math.random()))*100)/100);end(b,r>=t?t:0,'Limbo','🎯 '+r.toFixed(2)+'×')}
+/* Crash */
+function crash(){show('🚀 Crash',`<div class="sky"><div id="rk">${IMG.Crash}</div></div>${bb} onclick="cs()">Start</button>${ob} onclick="cx()">Cash out</button>`)}
+function cs(){if(busy)return;const b=take();if(!b)return;busy=1;const pt=Math.floor(Math.max(1,.97/(1-Math.random()))*100)/100;S={b,x:1};const r=$('rs'),rk=$('rk');rk.innerHTML=IMG.Crash;rk.style.transform='';r.className='res';T.push(setInterval(()=>{S.x*=1.012;if(S.x>=pt){clearInterval(T.pop());rk.innerHTML='<div style="font-size:56px">💥</div>';end(b,0,'Crash','💥 Crash di '+pt.toFixed(2)+'×')}else{r.textContent=S.x.toFixed(2)+'×';const p=Math.min(.85,Math.log(S.x)/2.5);rk.style.transform=`translate(${p*230}px,${-p*130}px)`}},80))}
+function cx(){if(!busy||!S)return;clearInterval(T.pop());const x=Math.floor(S.x*100)/100;end(S.b,x,'Crash','Cash out '+x.toFixed(2)+'×')}
+/* Mines */
+const mm=(n,s)=>{let m=.97;for(let k=0;k<s;k++)m*=(25-k)/(25-n-k);return s?m:1};
+function mines(){show('💎 Mines',`<label>Jumlah bom (1-24)</label><input id="mn" type="number" value="3" min="1" max="24">${bb} onclick="ms()">Start</button><div class="mg" id="mg" style="margin-top:10px"></div>${ob} onclick="mc()">Cash out</button>`)}
+function ms(){if(S)return;const n=Math.max(1,Math.min(24,+$('mn').value|0)),b=take();if(!b)return;const bm=new Set();while(bm.size<n)bm.add(Math.random()*25|0);S={b,n,bm,s:0};$('mn').disabled=true;$('mg').innerHTML=[...Array(25)].map((_,i)=>`<button onclick="mt(${i})">?</button>`).join('')}
+function mt(i){if(!S||!S.bm)return;const g=$('mg').children,x=g[i];if(x.disabled)return;x.disabled=true;if(S.bm.has(i)){S.bm.forEach(j=>{g[j].innerHTML=BOMB;g[j].className='bad'});[...g].forEach(y=>y.disabled=true);x.innerHTML=BOMB;return end(S.b,0,'Mines','💥 Kena bom')}x.innerHTML=GEM;x.className='ok';S.s++;if(S.s==25-S.n)return mc();const r=$('rs');r.className='res w';r.textContent=mm(S.n,S.s).toFixed(2)+'×'}
+function mc(){if(!S||!S.s)return toast('Buka satu tile dulu');const m=mm(S.n,S.s);[...$('mg').children].forEach(y=>y.disabled=true);end(S.b,m,'Mines','Cash out '+m.toFixed(2)+'×')}
+/* Plinko */
+const PM=[6,2.4,1.3,.8,.5,.8,1.3,2.4,6];
+function plinko(){show('🔵 Plinko',`<div style="position:relative;height:90px;background:radial-gradient(circle,#16a34a 3px,transparent 4px) 0 0/11.1% 22px;border-radius:12px"><span id="ball" style="position:absolute;left:50%;top:0;font-size:22px;transition:.15s;margin-left:-11px">🟡</span></div><div class="mg" id="pb" style="grid-template-columns:repeat(9,1fr);gap:3px">${PM.map(x=>`<button style="aspect-ratio:auto;padding:8px 0;font-size:11px;cursor:default">${x}×</button>`).join('')}</div>${bb} onclick="pd()">Drop</button>`)}
+function pd(){if(busy)return;const b=take();if(!b)return;busy=1;let t=0,k=0;[...$('pb').children].forEach(x=>x.className='');const ba=$('ball');ba.style.left='50%';ba.style.top='0';T.push(setInterval(()=>{if(t<8){t++;if(Math.random()<.5)k++;ba.style.left=(50+(k-t/2)*11.1)+'%';ba.style.top=(t*8)+'px'}else{clearInterval(T.pop());$('pb').children[k].className=PM[k]>=1?'ok':'bad';end(b,PM[k],'Plinko',PM[k]+'×')}},180))}
+/* Blackjack */
+const dk=()=>({c:1+Math.random()*13|0,s:Math.random()*4|0}),cs2=h=>h.map(x=>`<span class="pc ${x.s%2?'rd':''}">${['A',2,3,4,5,6,7,8,9,10,'J','Q','K'][x.c-1]}<b>${'♠♥♣♦'[x.s]}</b></span>`).join(''),tot=h=>{let t=0,a=0;h.forEach(x=>{t+=x.c>10?10:x.c==1?11:x.c;if(x.c==1)a++});while(t>21&&a>0){t-=10;a--}return t};
+function bj(){show('🃏 Blackjack',`${bb} onclick="bs()">Deal</button><div id="bd" class="felt"></div><div class="row2"><button class="btn" onclick="bh('h')">Hit</button><button class="btn" style="background:#f59e0b" onclick="bh('s')">Stand</button></div>`)}
+function bv(a){$('bd').innerHTML='<small>Kamu ('+tot(S.p)+')</small><div>'+cs2(S.p)+'</div><small>Dealer'+(a?' ('+tot(S.d)+')':'')+'</small><div>'+(a?cs2(S.d):cs2([S.d[0]])+'<span class="pc bk">?</span>')+'</div>'}
+function bs(){if(S)return;const b=take();if(!b)return;S={b,p:[dk(),dk()],d:[dk(),dk()]};if(tot(S.p)==21){bv(1);const pd2=tot(S.d)==21;return end(b,pd2?1:2.5,'Blackjack',pd2?'Seri (refund)':'Blackjack! 2.5×')}bv()}
+function bh(a){if(!S||!S.p)return;if(a=='h'){S.p.push(dk());if(tot(S.p)>21){bv(1);return end(S.b,0,'Blackjack','Bust 💥')}return bv()}while(tot(S.d)<17)S.d.push(dk());bv(1);const p=tot(S.p),d=tot(S.d),m=d>21||p>d?2:p==d?1:0;end(S.b,m,'Blackjack',m==2?'Menang 2×':m==1?'Seri (refund)':'Dealer menang')}
+/* Keno */
+const KP=[0,.4,1,3.5,15,200];
+function keno(){show('🔢 Keno',`<p>Pilih 5 angka (1-40). 10 angka diundi.</p><div class="mg" id="kg" style="grid-template-columns:repeat(8,1fr);gap:4px">${[...Array(40)].map((_,i)=>`<button style="font-size:12px" onclick="kt(this)">${i+1}</button>`).join('')}</div>${bb} onclick="kp()">Play</button>`)}
+function kt(e){const n=document.querySelectorAll('#kg .pk').length;if(e.classList.contains('pk'))e.classList.remove('pk');else if(n<5)e.classList.add('pk');[...$('kg').children].forEach(x=>x.style.outline='')}
+function kp(){const pk=document.querySelectorAll('#kg .pk');if(pk.length!=5)return toast('Pilih tepat 5 angka');const b=take();if(!b)return;const dn=new Set();while(dn.size<10)dn.add(1+Math.random()*40|0);let h=0;[...$('kg').children].forEach(x=>{if(dn.has(+x.textContent)){x.style.outline='2px solid #16c264';if(x.classList.contains('pk'))h++}});end(b,KP[h],'Keno',h+' hit · '+KP[h]+'×')}
+/* Roulette */
+const RD=new Set([1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]);
+function roul(){show('🎡 Roulette',`<div id="rw" style="width:150px;margin:0 auto 10px;transition:transform 1.8s cubic-bezier(.15,.7,.2,1)">${IMG.Roulette}</div><div class="row2"><button class="btn" style="background:#ef4444" onclick="rl('r')">Red 2×</button><button class="btn" style="background:#111827" onclick="rl('b')">Black 2×</button><button class="btn g" onclick="rl('g')">Green 36×</button></div><div class="row2"><button class="btn" onclick="rl('o')">Odd 2×</button><button class="btn" onclick="rl('e')">Even 2×</button></div>`)}
+function rl(t){if(busy)return;const b=take();if(!b)return;const n=Math.random()*37|0,c=n==0?'g':RD.has(n)?'r':'b',w=t==c||(n>0&&((t=='o'&&n%2==1)||(t=='e'&&n%2==0)));rd+=1080+Math.random()*360|0;$('rw').style.transform=`rotate(${rd}deg)`;busy=1;T.push(setTimeout(()=>end(b,w?(t=='g'?36:2):0,'Roulette',(c=='r'?'🔴':c=='b'?'⚫':'🟢')+' '+n),1900))}
+/* Chicken & Pump */
+const sm=n=>{let s=1;for(let i=0;i<n;i++)s*=1-SC.pf(i);return n?.97/s:1};
+function stepG(name,icon,pf,act){SC={name,icon,pf};show(icon+' '+name,`<div id="sv" style="font-size:60px;margin:6px;transition:.2s">${name=='Pump'?IMG.Pump:'🐔'}</div><div class="row2"><button class="btn g" onclick="sg()">${act}</button><button class="btn" style="background:#f59e0b" onclick="so()">Cash out</button></div>`)}
+function sg(){if(!S){const b=take();if(!b)return;S={b,n:0,g:2};$('sv').style.transform='';$('sv').innerHTML=SC.name=='Pump'?IMG.Pump:'🐔'}const v=$('sv');if(Math.random()<SC.pf(S.n)){v.textContent='💥';return end(S.b,0,SC.name,'💥 Gagal di langkah '+(S.n+1))}S.n++;if(SC.name=='Pump'){v.style.transform='scale('+Math.min(2.2,1+S.n*.1)+')';v.innerHTML=IMG.Pump}else v.innerHTML='<div class="road">'+[...Array(8)].map((_,i)=>i==Math.min(S.n,7)?'🐔':i<S.n?'🟩':'🚗').join('')+'</div>';const r=$('rs');r.className='res w';r.textContent='Langkah '+S.n+' · '+sm(S.n).toFixed(2)+'×'}
+function so(){if(!S||!S.n)return toast('Mulai dulu');const m=sm(S.n);end(S.b,m,SC.name,'Cash out '+m.toFixed(2)+'×')}
+/* Wheel */
+function wheel(){show('🛞 Wheel',`<div style="position:relative;width:240px;margin:0 auto"><div style="position:absolute;left:50%;top:-8px;margin-left:-10px;border:10px solid transparent;border-top:18px solid #14532d;z-index:2"></div><div id="whl" style="transition:transform 2.4s cubic-bezier(.15,.7,.2,1)">${WHEEL()}</div></div>${bb} onclick="wl()">Spin</button>`)}
+function wl(){if(busy)return;const b=take();if(!b)return;busy=1;const fin=Math.random()*12|0;wdeg+=1440+(((360-(fin+.5)*30-wdeg)%360)+360)%360;$('whl').style.transform=`rotate(${wdeg}deg)`;T.push(setTimeout(()=>end(b,WS[fin],'Wheel',WS[fin]?'Menang '+WS[fin]+'×':'Zonk'),2500))}
+/* Cases */
+const CP=[[0,.33],[.5,.28],[1,.2],[1.5,.1],[2,.06],[5,.025],[20,.004],[100,.001]];
+function cases(){show('📦 Cases',`<div id="cv2" class="chest">${IMG.Cases}</div><div id="cl" style="font-weight:900;font-size:30px;margin:6px 0">?</div>${bb} onclick="co()">Buka Case</button>${ob} onclick="fc()">🎁 Free Case Harian</button>`)}
+function co(){if(busy)return;const b=take();if(!b)return;busy=1;let u=Math.random(),m=0;for(const [x,p] of CP){m=x;if(u<p)break;u-=p}let t=0;T.push(setInterval(()=>{t++;if(t<14){$('cv2').classList.add('shake');$('cl').textContent=CP[Math.random()*8|0][0]+'×'}else{clearInterval(T.pop());$('cv2').classList.remove('shake');$('cl').textContent=m+'×';end(b,m,'Cases',m+'×')}},90))}
+function fc(){const d=new Date().toDateString();if(ld('fc_'+user,'')==d)return toast('Free case sudah diambil, besok lagi');const a=[5e4,1e5,15e4,25e4,5e5][Math.random()*5|0];bal+=a;upd();sv('fc_'+user,d);const r=$('rs');r.className='res w';r.textContent='🎁 +'+a.toLocaleString('id-ID')}
+/* Wallet & Admin */
+let adm=0;
+const RQ=()=>ld('rg_reqs',[]),SQ=a=>sv('rg_reqs',a),STT={p:'Pending ⏳',ok:'Disetujui ✅',no:'Ditolak ❌'},nf=n=>Math.floor(n).toLocaleString('id-ID'),nm=id=>+$(id).value.replace(/\D/g,'');
+function fm(e){const v=e.value.replace(/\D/g,'');e.value=v?(+v).toLocaleString('id-ID'):''}
+const hl=()=>RQ().filter(x=>x.u==user).slice(0,6).map(x=>`<div class="rq"><b>${x.t=='dep'?'Deposit':'Withdraw'}</b> ${nf(x.a)} · ${STT[x.s]}</div>`).join('');
+function addBal(u,a){if(u==user){bal+=a;upd()}else sv('b_'+u,ld('b_'+u,0)+a)}
+function req(t,a){const r=RQ();r.unshift({id:Date.now(),t,u:user,a,s:'p'});SQ(r);$('hl').innerHTML=hl()}
+function dep(){if(!user)return openLogin();show('⬇️ Deposit',`<ol style="text-align:left;font-size:14px;line-height:1.7;padding-left:20px"><li>Masuk server <b>RelxMC</b>, pastikan admin <b>DimsGuyy1</b> online</li><li>Ketik <code id="cmd">/pay DimsGuyy1 5000000</code></li><li>Isi jumlah yang sama di bawah, lalu ajukan</li><li>Saldo bertambah setelah admin ACC</li></ol><label>Jumlah deposit (minimal 5.000.000)</label><input id="da" inputmode="numeric" value="5.000.000" oninput="fm(this);$('cmd').textContent='/pay DimsGuyy1 '+nm('da')"><div class="row2"><button class="btn" onclick="navigator.clipboard&&navigator.clipboard.writeText($('cmd').textContent);toast('Command disalin')">Salin</button><button class="btn g" onclick="dc()">Ajukan Deposit</button></div><p><b>Status pengajuan</b></p><div id="hl">${hl()}</div>`,0)}
+function dc(){const a=nm('da');if(a<5e6)return toast('Minimal deposit 5.000.000');req('dep',a);toast('Deposit diajukan, menunggu ACC admin')}
+function wd(){if(!user)return openLogin();show('⬆️ Withdraw',`<p>Admin <b>DimsGuyy1</b> akan /pay ke username <b>${user}</b> di server setelah mengACC.</p><label>Jumlah withdraw (saldo: ${nf(bal)})</label><input id="wa" inputmode="numeric" value="" placeholder="0" oninput="fm(this)"><button class="btn" style="width:100%" onclick="wc()">Ajukan Withdraw</button><p><b>Status pengajuan</b></p><div id="hl">${hl()}</div>`,0)}
+function wc(){const a=nm('wa');if(!(a>0))return toast('Isi jumlah');if(a>bal)return toast('Saldo tidak cukup');bal-=a;upd();req('wd',a);$('wa').value='';toast('Withdraw diajukan, menunggu ACC admin')}
+function admin(){if(adm)return apr();show('🛡️ Admin',`<p>Masukkan password admin</p><input id="ap" type="password" placeholder="Password"><button class="btn" style="width:100%" onclick="al()">Masuk</button>`,0)}
+function al(){if($('ap').value!='zayy123')return toast('Password salah');adm=1;apr()}
+function apr(){const r=RQ(),p=r.filter(x=>x.s=='p'),d=r.filter(x=>x.s!='p').slice(0,8);show('🛡️ Panel Admin',`<p>Pengajuan pending: <b>${p.length}</b></p>${p.map(x=>`<div class="rq"><b>${x.t=='dep'?'⬇️ Deposit':'⬆️ Withdraw'}</b> · ${x.u}<br>Jumlah: <b>${nf(x.a)}</b><br><small>${x.t=='dep'?'Cek /pay masuk dari '+x.u:'Setelah ACC, jalankan: /pay '+x.u+' '+x.a}</small><div class="row2"><button class="btn g s" onclick="act(${x.id},1)">ACC</button><button class="btn s" style="background:#ef4444" onclick="act(${x.id},0)">Tolak</button></div></div>`).join('')||'<p>Tidak ada pengajuan.</p>'}<p><b>Riwayat</b></p>${d.map(x=>`<div class="rq">${x.t=='dep'?'Deposit':'Withdraw'} · ${x.u} · ${nf(x.a)} · ${STT[x.s]}</div>`).join('')||'<p>Belum ada.</p>'}`,0)}
+function act(id,ok){const r=RQ(),x=r.find(q=>q.id==id);if(!x||x.s!='p')return;x.s=ok?'ok':'no';if(x.t=='dep'&&ok)addBal(x.u,x.a);if(x.t=='wd'&&!ok)addBal(x.u,x.a);SQ(r);apr()}
+function rain(){if(!user)return openLogin();if(rj)return toast('Sudah join rain ini');rj=1;const a=Math.floor(31.48e6/62);bal+=a;upd();toast('Rain: +'+a.toLocaleString('id-ID'))}
+const GF={Mines:mines,Crash:crash,Cases:cases,Plinko:plinko,Dice:dice,Blackjack:bj,Keno:keno,Limbo:limbo,Flip:flip,Roulette:roul,Chicken:()=>stepG('Chicken','🐔',()=>.2,'Maju'),Wheel:wheel,Pump:()=>stepG('Pump','🎈',i=>.04+.03*i,'Pompa'),Coinflip:cflip};
+function game(i){if(!user)return openLogin();CUR=G[i][0];GF[CUR]()}
+const N=['A','B','C','D','E','F','G','K','M','N','R','S','W','X'],GN=['Crash','Cases','Dice','Plinko','Pump','Mines','Keno','Limbo','Flip'];let rows=[],tab='all';
+function rnd(){const b=Math.round((5+Math.random()*95)*1e6/(Math.random()<.5?5:1));const m=Math.random()<.3?+(.5+Math.random()*3).toFixed(2):0;return{g:GN[Math.random()*GN.length|0],p:N[Math.random()*N.length|0]+'***',b,m}}
+function feed(r){rows.unshift(r);rows=rows.slice(0,40);draw()}
+function draw(){let l=rows;if(tab=='high')l=[...rows].sort((a,b)=>b.b-a.b);if(tab=='lucky')l=rows.filter(r=>r.m>1);
+$('tb').innerHTML=l.slice(0,10).map(r=>{const p=r.b*r.m-r.b;return`<tr><td><b>${r.g}</b></td><td>${r.p}</td><td>🪙 ${f(r.b)}</td><td><span class="mult ${r.m>1?'w':''}">${r.m.toFixed(2)}×</span></td><td style="text-align:right" class="${p>=0?'w':'l'}">🪙 ${p>=0?'+':'-'}${f(Math.abs(p))}</td></tr>`}).join('')}
+for(let i=0;i<14;i++)rows.push(rnd());draw();setInterval(()=>{feed(rnd());$('s1').textContent=120+(Math.random()*20|0)},2500);
+$('tabs').onclick=e=>{if(!e.target.dataset.t)return;tab=e.target.dataset.t;[...$('tabs').children].forEach(b=>b.classList.toggle('on',b==e.target));draw()};
+let rs=169;setInterval(()=>{rs=rs<=0?(rj=0,300):rs-1;$('rt').textContent=Math.floor(rs/60)+':'+String(rs%60).padStart(2,'0')},1000);
+$('m').onclick=e=>{if(e.target==$('m')&&!$('m').classList.contains('full'))closeM()};
+</script></body></html>
