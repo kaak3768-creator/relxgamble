@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d16">
+  <title>Relx Gamble Money</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#" data-home><span class="brand-mark">Z</span><span>ZAYY<span class="brand-muted">.PLAY</span></span></a>
+    <nav class="desktop-nav"><a href="#" data-home class="active">Lobby</a><a href="#games" data-games>Games</a><a href="#leaderboard" data-leaderboard>Leaderboard</a></nav>
+    <div class="top-actions">
+      <div class="balance-chip"><span class="coin">◆</span><b id="headerBalance">0</b><small>COINS</small></div>
+      <button class="btn btn-dep" id="depositBtn">Deposit</button>
+      <button class="btn btn-wd" id="withdrawBtn">Withdraw</button>
+      <button class="btn btn-ghost" id="loginBtn">Masuk</button>
+      <button class="btn btn-admin" id="adminBtn">Admin</button>
+      <button class="avatar" id="profileBtn" title="Profil">?</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="lobby" class="page active">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> VIRTUAL ARCADE • PLAY FOR FUN</div>
+          <h1>Relx gamble <span>money</span></h1>
+          <p class="hero-tag">Casino dengan koin server Relx!<br>Menang pasti dibayar, Aman 100%</p>
+          <p class="hero-sub">Gamble dengan pilihan game yang menarik dan gacor</p>
+          <div class="hero-buttons"><button class="btn btn-primary" data-games>Jelajahi Game <span>↗</span></button><button class="btn btn-ghost" id="howBtn">Cara bermain</button></div>
+          <div class="hero-stats"><div><b>07</b><small>MINI GAMES</small></div><i></i><div><b>∞</b><small>FUN MODE</small></div><i></i><div><b>0</b><small>REAL MONEY</small></div></div>
+        </div>
+        <div class="hero-art">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="hero-glow"></div><div class="hero-cube"><span>◆</span><small>Z</small></div>
+          <div class="float-card card-a"><small>YOUR BALANCE</small><b id="heroBalance">0</b><span>◆ KOIN RELX</span></div>
+          <div class="float-card card-b"><span class="live-dot"></span> ARCADE ONLINE <b>READY</b></div>
+          <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div>
+        </div>
+      </section>
+
+      <section class="section-head" id="games"><div><div class="eyebrow">CHOOSE YOUR MODE</div><h2>Game <span>Favorites</span></h2><p>Pilih permainan dan mulai bermain.</p></div><div class="game-count">07 <span>GAMES AVAILABLE</span></div></section>
+      <section class="game-grid" id="gameGrid"></section>
+      <section class="leaderboard" id="leaderboard"><div><div class="eyebrow">COMMUNITY</div><h2>Top <span>Players</span></h2><p>Pemain dengan saldo terbanyak.</p></div><div id="leaderboardList" class="leader-list"></div></section>
+      <footer><a class="brand" href="#"><span class="brand-mark">Z</span><span>ZAYY<span class="brand-muted">.PLAY</span></span></a><span>KOIN SERVER RELX</span><span>© 2026 ZAYY PLAY</span></footer>
+    </section>
+
+    <section id="gamePage" class="page">
+      <button class="back-link" id="backBtn">← Kembali ke Lobby</button>
+      <div id="gameMount"></div>
+    </section>
+
+    <section id="adminPage" class="page">
+      <button class="back-link" id="adminBack">← Kembali</button>
+      <div class="admin-heading"><div class="eyebrow">CONTROL CENTER</div><h1>Admin <span>Dashboard</span></h1><p>Ringkasan akun dan pengajuan deposit / withdraw.</p></div>
+      <div class="admin-stats"><div class="stat-card"><small>PENDING</small><b id="totalPending">0</b></div><div class="stat-card"><small>TOTAL USERS</small><b id="totalUsers">0</b></div><div class="stat-card"><small>TOTAL KOIN</small><b id="totalCoins">0</b></div><div class="stat-card"><small>GAME SESSIONS</small><b id="totalPlays">0</b></div></div>
+      <div class="admin-panel"><div class="panel-title"><div><h3>Pengajuan Deposit &amp; Withdraw</h3><p>Status PENDING sampai kamu ACC atau Tolak.</p></div><button class="btn btn-ghost" id="refreshAdmin">↻ Refresh</button></div><div class="table-wrap"><table><thead><tr><th>WAKTU</th><th>TIPE</th><th>USERNAME</th><th>JUMLAH</th><th>STATUS</th><th>AKSI</th></tr></thead><tbody id="reqRows"></tbody></table></div></div>
+      <div class="admin-panel"><div class="panel-title"><div><h3>Daftar pemain</h3><p>Password tidak ditampilkan.</p></div></div></div><div class="table-wrap"><table><thead><tr><th>PLAYER</th><th>SALDO</th><th>SESSIONS</th><th>STATUS</th></tr></thead><tbody id="userRows"></tbody></table></div></div>
+      <div class="admin-note">Data akun, saldo, dan pengajuan tersimpan di database server. Panel ini diperbarui otomatis tiap 15 detik.</div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <button class="modal-x" id="modalClose">×</button><div class="eyebrow">PLAYER ACCESS</div><h2>Masuk ke Relx Gamble</h2><p>Masukkan username Minecraft dan password. Username baru otomatis didaftarkan. Jangan pakai password akun Minecraft/Microsoft.</p>
+      <form id="loginForm"><label>USERNAME MINECRAFT</label><input id="usernameInput" maxlength="16" minlength="3" placeholder="Contoh: Steve123" autocomplete="username" required><label>PASSWORD</label><input id="passwordInput" type="password" minlength="4" placeholder="Minimal 4 karakter" autocomplete="current-password" required><button class="btn btn-primary full" type="submit">Masuk →</button></form>
+      <div class="modal-foot">Pakai username &amp; password yang sama untuk masuk lagi.</div>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="txModal"><div class="modal" id="txBox"></div></div>
+  <div class="win-pop" id="winPop"></div>
+  <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+</body>
+</html>
