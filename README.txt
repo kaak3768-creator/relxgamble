@@ -1,4 +1,4 @@
-RELX GAMBLE MONEY (versi server)
+RELX GAMBLE MONEY (versi server) 
 
 File yang harus ada di GitHub/Vercel:
   index.html, style.css, app.js
